@@ -9,8 +9,8 @@ import { ExperienceData } from "@/constants/ExperienceData";
 const Experience = () => {
   const [desc, setDesc] = useState("");
   const [isExpe, setIsExpe] = useState(false);
-  const expeRef = useRef();
-  const expeBoxesRef = useRef();
+  const expeRef = useRef<HTMLDivElement>(null);
+  const expeBoxesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const expeObserver = new IntersectionObserver(
@@ -21,19 +21,22 @@ const Experience = () => {
         rootMargin: "-100px",
       }
     );
+    
+    if (expeRef.current !== null){
+      expeObserver.observe(expeRef.current);
 
-    expeObserver.observe(expeRef.current);
-
-    if (isExpe) {
-      expeBoxesRef.current.classList.add("pop-up-child");
-    } else {
-      expeBoxesRef.current.classList.remove("pop-up-child");
+      if (isExpe) {
+        expeBoxesRef.current?.classList.add("pop-up-child");
+      } else {
+        expeBoxesRef.current?.classList.remove("pop-up-child");
+      }
     }
+    
   }, [isExpe]);
 
   return (
     <Fragment>
-      <section id='experience' ref={expeRef}>
+      <div id='experience' ref={expeRef}>
         <h2 className='text-3xl font-bold text-center p-4 flex justify-center items-center gap-3'>
           <MdWork /> Experience
         </h2>
@@ -163,7 +166,7 @@ const Experience = () => {
             )
           )}
         </div>
-      </section>
+      </div>
     </Fragment>
   );
 };

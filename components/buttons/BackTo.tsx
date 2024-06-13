@@ -2,7 +2,11 @@ import React, { Fragment } from "react";
 import Link from "next/link";
 import { HiArrowNarrowLeft } from "react-icons/hi";
 
-const BackTo = ({ backTo }) => {
+type BackToProps = {
+  backTo: string;
+};
+
+const BackTo = ({ backTo }: BackToProps) => {
   return (
     <Fragment>
       <div className="h-[12vh] sticky top-0 flex items-center px-10 dark:bg-black bg-white">

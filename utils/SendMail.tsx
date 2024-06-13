@@ -1,17 +1,24 @@
-import React, { Fragment, useState } from "react";
+import React, { FormEvent, Fragment, useState } from "react";
 import axios from "axios";
 import { FiMessageCircle } from "react-icons/fi";
 
+type Form = {
+  name?: string;
+  email?: string;
+  message?: string;
+  subject?: string;
+}
+
 const SendMail = () => {
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState<Form>({});
   const [sending, setSending] = useState(false);
 
-  const collectData = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const collectData = (event: FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [event.currentTarget.name]: event.currentTarget.value });
   };
 
-  const sendMessage = (e) => {
-    e.preventDefault();
+  const sendMessage = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
     const { name, email, message, subject } = formData;
 
@@ -79,7 +86,7 @@ const SendMail = () => {
                 name='message'
                 onChange={collectData}
                 placeholder='Write Your Message'
-                rows='3'
+                rows={3}
                 value={formData.message || ""}
               />
 

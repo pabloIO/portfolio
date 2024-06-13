@@ -5,10 +5,10 @@ import { IoSchoolSharp } from "react-icons/io5";
 
 import { EducationData } from "@/constants/EducationData";
 
-const Education = () => {
+export default function Education () {
   const [isEducation, setIsEducation] = useState(false);
-  const educationRef = useRef();
-  const educationBoxesRef = useRef();
+  const educationRef = useRef<HTMLDivElement>(null);
+  const educationBoxesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const getScreenWidth = () =>
@@ -24,19 +24,21 @@ const Education = () => {
         rootMargin: `${getScreenWidth() <= 700 ? "-100px" : "-300px"}`,
       }
     );
+    if (educationRef.current !== null){
+      educationObserver.observe(educationRef.current);
 
-    educationObserver.observe(educationRef.current);
-
-    if (isEducation) {
-      educationBoxesRef.current.classList.add("pop-up-child");
-    } else {
-      educationBoxesRef.current.classList.remove("pop-up-child");
+      if (isEducation) {
+        educationBoxesRef.current?.classList.add("pop-up-child");
+      } else {
+        educationBoxesRef.current?.classList.remove("pop-up-child");
+      }
     }
+    
   }, [isEducation]);
 
   return (
     <Fragment>
-      <section
+      <div
         className='shadow-zinc-300 dark:shadow-zinc-700 shadow-sm overflow-x-hidden'
         id='education'
         ref={educationRef}
@@ -74,9 +76,7 @@ const Education = () => {
             </div>
           ))}
         </div>
-      </section>
+      </div>
     </Fragment>
   );
 };
-
-export default Education;

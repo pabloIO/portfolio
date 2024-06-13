@@ -10,8 +10,8 @@ import { ProjectsData } from "@/constants";
 const Project = () => {
   const [height1, setHeight1] = useState("");
   const [isProjects, setIsProjects] = useState(false);
-  const projectRef = useRef();
-  const projectBoxesRef = useRef();
+  const projectRef = useRef<HTMLDivElement>(null);
+  const projectBoxesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (projectRef.current) {
@@ -23,15 +23,16 @@ const Project = () => {
           rootMargin: "-100px",
         }
       );
+      
+        projectsObserver.observe(projectRef.current);
 
-      projectsObserver.observe(projectRef.current);
-
-      if (isProjects) {
-        projectBoxesRef.current.classList.add("pop-up-child");
-      } else {
-        projectBoxesRef.current.classList.remove("pop-up-child");
+        if (isProjects) {
+          projectBoxesRef.current?.classList.add("pop-up-child");
+        } else {
+          projectBoxesRef.current?.classList.remove("pop-up-child");
+        }
       }
-    }
+    
   }, [isProjects, projectRef]);
 
   return (

@@ -9,9 +9,9 @@ import { BsMenuAppFill } from "react-icons/bs";
 const About = () => {
   const [isAbout, setIsAbout] = useState(false);
 
-  const aboutRef = useRef();
-  const profile2Ref = useRef();
-  const aboutInfoRef = useRef();
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const profile2Ref = useRef<HTMLImageElement>(null);
+  const aboutInfoRef = useRef<HTMLDivElement>(null);
 
   // Scroll Animation
   useEffect(() => {
@@ -33,18 +33,18 @@ const About = () => {
       aboutObserver.observe(aboutRef.current);
 
       if (isAbout) {
-        profile2Ref.current.classList.add("slide-in");
-        aboutInfoRef.current.classList.add("slide-in");
+        profile2Ref.current?.classList.add("slide-in");
+        aboutInfoRef.current?.classList.add("slide-in");
       } else {
-        profile2Ref.current.classList.remove("slide-in");
-        aboutInfoRef.current.classList.remove("slide-in");
+        profile2Ref.current?.classList.remove("slide-in");
+        aboutInfoRef.current?.classList.remove("slide-in");
       }
     }
   }, [isAbout, aboutRef]);
 
   return (
     <Fragment>
-      <section
+      <div
         className=' shadow-zinc-300 dark:shadow-zinc-700 shadow-sm overflow-x-hidden'
         id='about'
         ref={aboutRef}
@@ -148,7 +148,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </Fragment>
   );
 };

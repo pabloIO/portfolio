@@ -5,7 +5,15 @@ import { DiTechcrunch } from "react-icons/di";
 
 import { NavbarMenu } from "./NavbarItems";
 
-const MobileNavbar = ({ showMenu, setShowMenu }) => {
+type SidebarMobileProps = {
+  setShowMenu: (show: boolean) => void;
+  showMenu: boolean;
+}
+
+export default function SidebarMobile ({ 
+  showMenu, 
+  setShowMenu 
+}: SidebarMobileProps){
   return (
     <Fragment>
       <div
@@ -57,5 +65,3 @@ const MobileNavbar = ({ showMenu, setShowMenu }) => {
     </Fragment>
   );
 };
-
-export default MobileNavbar;

@@ -9,7 +9,6 @@ const TechStack = () => {
   const [istechStack, setIsTechStack] = useState(false);
   const techStackRef = useRef<HTMLDivElement>(null);
   const techBoxesRef = useRef<HTMLDivElement>(null);
-  const buttonsRef = useRef();
 
   useEffect(() => {
     const getScreenWidth = () =>

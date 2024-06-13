@@ -9,13 +9,13 @@ import MobileNavbar from "./SidebarMobile";
 import { NavbarMenu } from "./NavbarItems";
 import NavbarMobile from "./NavbarMobile";
 
-import { ThemeContext } from "@/context/ThemeContext";
+import { useThemeContext } from "@/context/ThemeContext";
 
 const Navbar = () => {
   const [top, setTop] = useState("0");
   const [showMenu, setShowMenu] = useState(false);
 
-  const { setThemeFun, theme } = useContext(ThemeContext);
+  const { setThemeFun, theme } = useThemeContext();
 
   // Logic for Navbar Hide and Show on scrolling behaviour
   useEffect(() => {

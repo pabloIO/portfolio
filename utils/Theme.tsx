@@ -1,9 +1,12 @@
-import React, { useContext } from "react";
+import React, { type ReactNode, useContext } from "react";
 
-import { ThemeContext } from "@/context/ThemeContext";
+import { ThemeContext, useThemeContext } from "@/context/ThemeContext";
 
-const Theme = ({ children }) => {
-  const { theme } = useContext(ThemeContext);
+type ThemeProps = {
+  children: ReactNode
+}
+export default function Theme ({ children }: ThemeProps) {
+  const { theme } = useThemeContext();
 
   return (
     <>
@@ -12,4 +15,3 @@ const Theme = ({ children }) => {
   );
 };
 
-export default Theme;

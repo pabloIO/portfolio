@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, createContext, useEffect, type ReactNode } from "react";
+import React, { useState, createContext, useEffect, type ReactNode, useContext } from "react";
 
 type ThemeProviderValue = {
     theme: string;
@@ -7,6 +7,15 @@ type ThemeProviderValue = {
 }
 
 export const ThemeContext = createContext<ThemeProviderValue | null>(null);
+
+export function useThemeContext(){
+    const ctx = useContext(ThemeContext);
+    if (ctx === null){
+        throw new Error("PortfolioContext is null -- that should not happen");
+    }
+    
+    return ctx;
+}
 
 type ThemeProviderProps = {
     children: ReactNode;

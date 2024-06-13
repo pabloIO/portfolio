@@ -18,32 +18,32 @@ const Home = () => {
   return (
     <Fragment>
       <Head>
-        <title>Shiv&apos;s Portfolio</title>
+        <title>Pablo&apos;s Portfolio</title>
         {/* <!-- Primary Meta Tags --> */}
-        <meta content="Shiv's Portfolio" name="title" />
-        <meta content="Explore the best Next.js and React.js portfolio by Shivraj Gurjar. Featuring simple, dark and light theme designs and mobile responsiveness." name="description" />
+        <meta content="Pablo's Portfolio" name="title" />
+        <meta content="Explore Pablo's skills as a Fullstack developer with React, React Native, NextJS and Python." name="description" />
 
         {/* <!-- Open Graph / Facebook --> */}
         <meta content="website" property="og:type" />
-        <meta content="https://shiv-s-portfolio.vercel.app" property="og:url" />
-        <meta content="Shiv's Portfolio" property="og:title" />
-        <meta content="Explore the best Next.js and React.js portfolio by Shivraj Gurjar. Featuring simple, dark and light theme designs and mobile responsiveness." property="og:description" />
-        <meta content="https://shiv-s-portfolio.vercel.app/images/welcome-screen.png" property="og:image" />
+        <meta content="https://pablo-montes-portfolio.vercel.app" property="og:url" />
+        <meta content="Pablo's Portfolio" property="og:title" />
+        <meta content="Explore Pablo's skills as a Fullstack developer with React, React Native, NextJS and Python." property="og:description" />
+        <meta content="https://pablo-montes-portfolio.vercel.app/images/welcome-screen.png" property="og:image" />
 
         {/* <!-- Twitter --> */}
-        <meta content="https://shiv-s-portfolio.vercel.app/images/welcome-screen.png" property="twitter:card" />
-        <meta content="https://shiv-s-portfolio.vercel.app" property="twitter:url" />
-        <meta content="Shivraj Gurjar - Portfolio" property="twitter:title" />
-        <meta content="Explore the best Next.js and React.js portfolio by Shivraj Gurjar. Featuring simple, dark and light theme designs and mobile responsiveness." property="twitter:description" />
-        <meta content="https://shiv-s-portfolio.vercel.app/images/welcome-screen.png" property="twitter:image" />
+        <meta content="https://pablo-montes-portfolio.vercel.app/images/welcome-screen.png" property="twitter:card" />
+        <meta content="https://pablo-montes-portfolio.vercel.app" property="twitter:url" />
+        <meta content="Pablo Montes - Portfolio" property="twitter:title" />
+        <meta content="Explore Pablo's skills as a Fullstack developer with React, React Native, NextJS and Python." property="twitter:description" />
+        <meta content="https://pablo-montes-portfolio.vercel.app/images/welcome-screen.png" property="twitter:image" />
 
         {/* <!-- Other Meta Tags --> */}
-        <meta content="portfolio, Next.js, React.js, web development, dark theme, light theme, best portfolio github, best next js portfolio, how to make a portfolio, best react js portfolio github, best react js portfolio, best next js portfolio, react js developer in Kota, react js developer in Jaipur, react js developer in India, react js developer in Rajasthan" name="keywords" />
-        <meta content="Shivraj Gurjar" name="author" />
+        <meta content="portfolio, Next.js, React.js, web development, dark theme, light theme, best portfolio github, best next js portfolio, how to make a portfolio, best react js portfolio github, best react js portfolio, best next js portfolio, react native developer, react native developer in Bolivia, react native developer remote, react native developer in Latam, react native developer" name="keywords" />
+        <meta content="Pablo Montes" name="author" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
         {/* <!-- Favicon --> */}
-        <link href="https://shiv-s-portfolio.vercel.app/favicon.ico" rel="icon" type="image/x-icon" />
+        <link href="https://pablo-montes-portfolio.vercel.app/favicon.ico" rel="icon" type="image/x-icon" />
 
       </Head>
       <div>

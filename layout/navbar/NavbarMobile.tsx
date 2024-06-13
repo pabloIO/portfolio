@@ -4,7 +4,21 @@ import { BsFillLightningChargeFill } from "react-icons/bs";
 import { TbBulbFilled } from "react-icons/tb";
 import { GiHamburgerMenu } from "react-icons/gi";
 
-const NavbarMobile = ({ setShowMenu, setThemeFun, theme, showMenu, top }) => {
+type NavBarMobileProps = {
+  setShowMenu: (show: boolean) => void;
+  setThemeFun: () => void;
+  theme: string;
+  showMenu: boolean;
+  top: string;
+}
+
+export default function NavbarMobile({ 
+  setShowMenu, 
+  setThemeFun, 
+  theme, 
+  showMenu, 
+  top 
+}: NavBarMobileProps) {
   return (
     //  Mobile Header
     <div
@@ -38,5 +52,3 @@ const NavbarMobile = ({ setShowMenu, setThemeFun, theme, showMenu, top }) => {
     </div>
   );
 };
-
-export default NavbarMobile;
