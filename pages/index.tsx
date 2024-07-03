@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <Fragment>
       <Head>
-        <title>Pablo&apos;s Portfolio</title>
+        <title>Pablo Portfolio</title>
         {/* <!-- Primary Meta Tags --> */}
         <meta content="Pablo's Portfolio" name="title" />
         <meta content="Explore Pablo's skills as a Fullstack developer with React, React Native, NextJS and Python." name="description" />
@@ -54,12 +54,12 @@ const Home = () => {
           <Intro />
           {/* About */}
           <About />
+          {/* Experience */}
+          <Experience />
           {/* Skills  */}
           <Skills />
           {/* Education */}
           <Education />
-          {/* Experience */}
-          <Experience />
           {/* Projects */}
           <Projects />
           {/* SocialMedia */}

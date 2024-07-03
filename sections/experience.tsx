@@ -7,8 +7,9 @@ import { BsArrowDownCircle } from "react-icons/bs";
 import { ExperienceData } from "@/constants/ExperienceData";
 
 const Experience = () => {
-  const [desc, setDesc] = useState("");
-  const [isExpe, setIsExpe] = useState(false);
+  const [tasks, setTasks] = useState<string[]>([]);
+  const [sectionOpen, setSectionOpen] = useState<string>("");
+  const [isExpe, setIsExpe] = useState<boolean>(false);
   const expeRef = useRef<HTMLDivElement>(null);
   const expeBoxesRef = useRef<HTMLDivElement>(null);
 
@@ -34,6 +35,13 @@ const Experience = () => {
     
   }, [isExpe]);
 
+  function handleSectionOpen(sectionName: string){
+    setSectionOpen((prevSection) => {
+      if (prevSection === "") return sectionName;
+      return "";
+    })
+  }
+
   return (
     <Fragment>
       <div id='experience' ref={expeRef}>
@@ -55,13 +63,7 @@ const Experience = () => {
               >
                 <div
                   className='md:w-[45%] cursor-pointer p-3 border border-zinc-300 dark:border-zinc-700 shadow-zinc-300 dark:shadow-zinc-700 shadow-sm rounded'
-                  onClick={() =>
-                    setDesc(
-                      desc === experience.description
-                        ? ""
-                        : experience.description
-                    )
-                  }
+                  onClick={() => handleSectionOpen(experience.companyName)}
                 >
                   <div className='flex justify-between gap-2'>
                     <p className='text-xl md:text-2xl font-bold text-red-600'>
@@ -77,28 +79,26 @@ const Experience = () => {
                     <p>{experience.fromTo}</p>
                   </div>
 
-                  <p
+                  <section
                     className='mt-2 text-justify transition-all duration-500 overflow-hidden text-gray-700 dark:text-gray-500'
                     style={
-                      desc == experience.description
+                      sectionOpen == experience.companyName
                         ? { maxHeight: "400px" }
                         : { maxHeight: "0px" }
                     }
                   >
-                    {experience.description}
-                  </p>
+                    <ul className="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+                      { experience.tasks?.map((task) => 
+                        <li key={task}>{task}</li>
+                      )}
+                    </ul>
+                  </section>
                 </div>
                 <button
                   className='transition-all duration-500 hidden md:block'
-                  onClick={() =>
-                    setDesc(
-                      desc === experience.description
-                        ? ""
-                        : experience.description
-                    )
-                  }
+                  onClick={() => handleSectionOpen(experience.companyName)}
                   style={
-                    desc === experience.description
+                    sectionOpen === experience.companyName
                       ? { transform: "rotate(180deg)" }
                       : {}
                   }
@@ -113,15 +113,9 @@ const Experience = () => {
               >
                 <button
                   className='hidden md:block'
-                  onClick={() =>
-                    setDesc(
-                      desc === experience.description
-                        ? ""
-                        : experience.description
-                    )
-                  }
+                  onClick={() => handleSectionOpen(experience.companyName)}
                   style={
-                    desc === experience.description
+                    sectionOpen === experience.companyName
                       ? { transform: "rotate(180deg)" }
                       : {}
                   }
@@ -130,13 +124,7 @@ const Experience = () => {
                 </button>
                 <div
                   className='md:w-[45%] cursor-pointer  transition-all duration-500 p-3 border border-zinc-300 dark:border-zinc-700 shadow-zinc-300 dark:shadow-zinc-700 shadow-smrounded'
-                  onClick={() =>
-                    setDesc(
-                      desc === experience.description
-                        ? ""
-                        : experience.description
-                    )
-                  }
+                  onClick={() => handleSectionOpen(experience.companyName)}
                 >
                   <div className='flex justify-between gap-2'>
                     <p className='text-xl md:text-2xl font-bold text-red-600'>
@@ -151,16 +139,20 @@ const Experience = () => {
                     <p className='font-semibold'>{experience.role}</p>
                     <p>{experience.fromTo}</p>
                   </div>
-                  <p
+                  <section
                     className='mt-2 overflow-hidden transition-all duration-500 text-justify text-gray-700 dark:text-gray-500'
                     style={
-                      desc == experience.description
+                      sectionOpen === experience.companyName
                         ? { maxHeight: "400px" }
                         : { maxHeight: "0px" }
                     }
                   >
-                    {experience.description}
-                  </p>
+                    <ul className="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+                      { experience.tasks?.map((task) => 
+                        <li key={task}>{task}</li>
+                      )}
+                    </ul>
+                  </section>
                 </div>
               </div>
             )

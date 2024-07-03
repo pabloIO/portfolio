@@ -2,11 +2,11 @@
 import React, { Fragment, useState, useEffect, useRef } from "react";
 import { FaLaptopCode } from "react-icons/fa";
 
-import { TechStackData, type ITechStack } from "@/constants/SkillsData.tsx";
+import { TechStackData, type ITechSkills } from "@/constants/SkillsData.tsx";
 
 const TechStack = () => {
-  const [sectionData, setSectionData] = useState<ITechStack[]>([]);
-  const [istechStack, setIsTechStack] = useState(false);
+  const [sectionData, setSectionData] = useState<ITechSkills[]>([]);
+  const [istechStack, setIsTechStack] = useState<boolean>(false);
   const techStackRef = useRef<HTMLDivElement>(null);
   const techBoxesRef = useRef<HTMLDivElement>(null);
 
@@ -48,30 +48,35 @@ const TechStack = () => {
 
   return (
     <Fragment>
-      <div
-        className='shadow-zinc-300 dark:shadow-zinc-700 shadow-sm overflow-hidden'
-        id='techStack'
-        ref={techStackRef}
-      >
-        <h2 className='text-3xl font-bold text-center p-4 flex justify-center items-center gap-3'>
-          <FaLaptopCode /> Tech Stack
-        </h2>
+      {
+        sectionData.map((tech) => 
+          <div
+            className='shadow-zinc-300 dark:shadow-zinc-700 shadow-sm overflow-hidden'
+            id='techStack'
+            key={tech.type}
+            ref={techStackRef}
+          >
+            <h2 className='text-3xl font-bold text-center p-4 flex justify-center items-center gap-3'>
+              <FaLaptopCode /> {tech.type}
+            </h2>
 
-        <div
-          className='pop-down-child flex min-h-[450px] py-[30px] px-[20px] md:px-[100px] flex-wrap justify-center items-center gap-5'
-          ref={techBoxesRef}
-        >
-          {sectionData.map((tech) => (
             <div
-              className='transition-all duration-700 px-2 h-fit py-3 md:py-5 w-[120px] md:w-[150px] border border-black dark:border-white border-solid rounded flex flex-col gap-3 items-center'
-              key={tech.name}
+              className='pop-down-child flex min-h-[450px] py-[30px] px-[20px] md:px-[100px] flex-wrap justify-center items-center gap-5'
+              ref={techBoxesRef}
             >
-              <p>{tech.icon}</p>
-              <p>{tech.name}</p>
+              {tech.skills.map((skill) => (
+                <div
+                  className='transition-all duration-700 px-2 h-fit py-3 md:py-5 w-[120px] md:w-[150px] border border-black dark:border-white border-solid rounded flex flex-col gap-3 items-center'
+                  key={skill.name}
+                >
+                  <p>{skill.icon}</p>
+                  <p>{skill.name}</p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </div>   
+        )
+      }
     </Fragment>
   );
 };
